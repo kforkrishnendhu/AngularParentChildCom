@@ -11,8 +11,14 @@ export class ChildComponent {
 
 @Input() message :string='';
 @Output() messageEvent=new EventEmitter<string>();
+msg:string='';
 
 sendMessage() {
   this.messageEvent.emit('Hello from child');
+  }
+
+  updateMessage(msg:string)
+  {
+    this.msg=msg;
   }
 }

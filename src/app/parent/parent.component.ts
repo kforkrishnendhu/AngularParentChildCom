@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, viewChild } from '@angular/core';
 import { ChildComponent } from "../child/child.component";
 
 @Component({
@@ -9,12 +9,16 @@ import { ChildComponent } from "../child/child.component";
   styleUrl: './parent.component.css'
 })
 export class ParentComponent {
+
   message:string='';
+  @ViewChild(ChildComponent) child!:ChildComponent;
 
   receiveMessage(message:string) {
 this.message=message;
     
 }
-
+sendUpdate() {
+  this.child.updateMessage('Message updated by parent');
+  }
 
 }
